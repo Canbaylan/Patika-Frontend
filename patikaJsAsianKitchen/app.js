@@ -72,7 +72,7 @@ const menu = [{
     },
 ];
 const menuCategoryDom = document.querySelector('.btn-container')
-const itemDom = document.querySelector('.section-center')
+let itemDom = document.querySelector('.section-center')
 
 function createEl(el) {
     return document.createElement(`${el}`)
@@ -82,8 +82,9 @@ menu.forEach(item => {
     if (!Category.includes(item.category))
         Category.push(item.category)
 })
+
 for (let i = 0; i < Category.length; i++) {
-    const buttonEl = createEl('button')
+    var buttonEl = createEl('button')
     buttonEl.classList = "btn btn-outline-dark btn-item"
     buttonEl.setAttribute("data-id", `${Category[i]}`)
     buttonEl.textContent = `${Category[i]}`
@@ -91,29 +92,55 @@ for (let i = 0; i < Category.length; i++) {
 }
 
 for (let i = 0; i < menu.length; i++) {
-    const divEl = createEl('div')
+    let divEl = createEl('div')
     divEl.classList = "menu-items col-lg-6 col-sm-12"
     itemDom.appendChild(divEl)
 
-    const imgEl = createEl('img')
+    let imgEl = createEl('img')
     imgEl.classList = "photo"
     imgEl.alt = (`${menu[i].title}`)
     imgEl.src = (`${menu[i].img}`)
     divEl.appendChild(imgEl)
 
-    const infoEl = createEl('div')
+    let infoEl = createEl('div')
     infoEl.classList = "menu-info"
-    divEl.appendChild('infoEl')
+    divEl.appendChild(infoEl)
 
     const infoTitle = createEl('div')
     infoTitle.classList = "menu-title"
     const h4Info = createEl('h4')
     h4Info.textContent = `${menu[i].title}`
-
-    infoEl.appendChild('infoTitle')
+    const h4Price = createEl('h4')
+    h4Price.classList = "price"
+    h4Price.textContent = `${menu[i].price}`
+    infoTitle.appendChild(h4Info)
+    infoTitle.appendChild(h4Price)
+    infoEl.appendChild(infoTitle)
 
     const infoText = createEl('div')
     infoText.classList = "menu-text"
-    infoEl.appendChild('infoText')
-
+    infoText.textContent = `${menu[i].desc}`
+    infoEl.appendChild(infoText)
 }
+const buttonItemsDom = document.querySelectorAll(".btn-item")
+console.log(buttonItemsDom)
+
+buttonItemsDom.forEach(item => {
+        console.log(item.getAttribute("data-id"))
+        item.addEventListener("click", e => {
+            console.log(e.target.getAttribute("data-id"))
+            console.log("cat => " + Category)
+            let mappedCategory = []
+            menu.map(item => {
+                if (item.category === e.target.getAttribute("data-id")) {
+                    // koşula uyanlar diziye eklenecek
+                } else if (e.target.getAttribute("data-id") == "All") {
+                    // listedeki her eleman diziye eklenecek
+                }
+            })
+            console.log(mappedCategory)
+
+
+        })
+    })
+    //Dom list delete = itemDom.remove()
