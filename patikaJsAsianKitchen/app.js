@@ -132,15 +132,12 @@ buttonItemsDom.forEach(item => {
             console.log("cat => " + Category)
             let mappedCategory = []
             menu.map(item => {
-                if (item.category === e.target.getAttribute("data-id")) {
-                    // koşula uyanlar diziye eklenecek
-                } else if (e.target.getAttribute("data-id") == "All") {
-                    // listedeki her eleman diziye eklenecek
+                if (item.category === e.target.getAttribute("data-id") ||
+                    e.target.getAttribute("data-id") == "All") {
+                    mappedCategory.push(item)
                 }
             })
             console.log(mappedCategory)
-
-
         })
     })
     //Dom list delete = itemDom.remove()
