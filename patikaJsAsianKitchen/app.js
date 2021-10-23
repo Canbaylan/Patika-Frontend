@@ -122,22 +122,44 @@ for (let i = 0; i < menu.length; i++) {
     infoText.textContent = `${menu[i].desc}`
     infoEl.appendChild(infoText)
 }
-const buttonItemsDom = document.querySelectorAll(".btn-item")
-console.log(buttonItemsDom)
 
+
+const buttonItemsDom = document.querySelectorAll(".btn-item")
+let mappedCategory = []
 buttonItemsDom.forEach(item => {
-        console.log(item.getAttribute("data-id"))
-        item.addEventListener("click", e => {
-            console.log(e.target.getAttribute("data-id"))
-            console.log("cat => " + Category)
-            let mappedCategory = []
-            menu.map(item => {
-                if (item.category === e.target.getAttribute("data-id") ||
-                    e.target.getAttribute("data-id") == "All") {
-                    mappedCategory.push(item)
-                }
-            })
-            console.log(mappedCategory)
+    item.addEventListener("click", e => {
+        mappedCategory = []
+        menu.map(item => {
+            if (item.category === e.target.getAttribute("data-id") ||
+                e.target.getAttribute("data-id") == "All") {
+                mappedCategory.push(item)
+            }
         })
+        console.log(typeof(mappedCategory));
+        goster()
     })
-    //Dom list delete = itemDom.remove()
+})
+
+function goster() {
+    let displayMenu = mappedCategory.map((item) => {
+        return `<div class="menu-items col-lg-6 col-sm-12">
+                <img
+                  src=${item.img}
+                  alt=${item.title}
+                  class="photo"
+                />
+                <div class="menu-info">
+                  <div class="menu-title">
+                    <h4>${item.title}</h4>
+                    <h4 class="price">${item.price}</h4>
+                  </div>
+                  <div class="menu-text">
+                    ${item.desc}
+                  </div>
+                </div>
+              </div>
+        `;
+    });
+    displayMenu = displayMenu.join("");
+    itemDom.innerHTML = displayMenu;
+}
