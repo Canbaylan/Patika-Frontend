@@ -1,0 +1,19 @@
+{
+  "name": "patika-frontend",
+  "version": "1.0.0",
+  "description": "Bu repo'da Frontend Web Development Patikası için yaptığım projeleri paylaşıyorum.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Canbaylan/Patika-Frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Canbaylan/Patika-Frontend/issues"
+  },
+  "homepage": "https://github.com/Canbaylan/Patika-Frontend#readme"
+}
