@@ -1,3 +1,10 @@
+# React Contacts App
+<br/>
+<div style="text-align:center">
+<img src="https://i.hizliresim.com/1i2k15v.gif" alt="Çıktı">
+</div>
+<br/><br/>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
